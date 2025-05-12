@@ -1,4 +1,5 @@
 import { AccessToken, AccessTokenOptions, VideoGrant } from "livekit-server-sdk";
+import { RoomAgentDispatch, RoomConfiguration } from "@livekit/protocol";
 import { NextResponse } from "next/server";
 
 // NOTE: you are expected to define the following environment variables in `.env.local`:
@@ -68,5 +69,10 @@ function createParticipantToken(userInfo: AccessTokenOptions, roomName: string) 
     canSubscribe: true,
   };
   at.addGrant(grant);
+  at.roomConfig = new RoomConfiguration({
+    agents: [new RoomAgentDispatch({
+      agentName: "echo",
+    })],
+  });
   return at.toJwt();
 }
