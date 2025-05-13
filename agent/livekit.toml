@@ -1,8 +1,8 @@
 [project]
-  subdomain = "dz-test"
+  subdomain = "dztest2"
 
 [agent]
   name = "bvc-agent"
-  cpu = "2"
+  cpu = "1"
   replicas = 1
-  max_replicas = 2
+  max_replicas = 10
