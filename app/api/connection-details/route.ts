@@ -71,7 +71,7 @@ function createParticipantToken(userInfo: AccessTokenOptions, roomName: string) 
   at.addGrant(grant);
   at.roomConfig = new RoomConfiguration({
     agents: [new RoomAgentDispatch({
-      agentName: "echo",
+      agentName: "bvc-agent",
     })],
   });
   return at.toJwt();
